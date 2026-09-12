@@ -26,3 +26,9 @@ jobs:
       - name: Run tests
         run: npm test
         working-directory: ./app
+
+      - name: Build
+        run: |
+          mkdir -p dist
+          cp app.js dist/app.js
+        working-directory: ./app
