@@ -1,5 +1,16 @@
-function add(a, b) {
-    return a + b;
-}
+const http = require("http");
 
-module.exports = add;
+const server = http.createServer((req, res) => {
+    if (req.url === "/health") {
+        res.writeHead(200, {"Content-Type": "application/json"});
+        res.end(JSON.stringify({status: "OK"}));
+        return;
+    }
+
+    res.writeHead(404);
+    res.end();
+});
+
+server.listen(3000, () => {
+    console.log("Server listening on port 3000");
+});
