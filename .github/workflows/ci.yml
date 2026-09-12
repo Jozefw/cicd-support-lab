@@ -37,3 +37,6 @@ jobs:
         with:
           name: app-build
           path: ./app/dist
+      - name: Build Docker image
+        run: docker build -t cicd-support-app .
+        working-directory: ./app
